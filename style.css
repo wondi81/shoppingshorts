@@ -9,8 +9,10 @@ input#search { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1px
 .card { display: block; background: #fff; border-radius: 14px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-decoration: none; color: inherit; }
 .card .num { display: inline-block; background: #1a1a2e; color: #fff; font-size: 12px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin-bottom: 6px; }
 .card .name { font-size: 15px; font-weight: 600; }
+.card .thumb { width: 56px; height: 56px; border-radius: 10px; object-fit: cover; float: left; margin-right: 12px; }
 .product-page .card { text-align: center; }
 .product-page .name { font-size: 18px; margin: 8px 0 12px; }
+.product-img { width: 100%; max-height: 280px; object-fit: cover; border-radius: 10px; margin-bottom: 4px; }
 .btn { display: block; width: 100%; padding: 14px; background: #ff6f3d; color: #fff; text-align: center; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; margin-top: 8px; }
 .disclosure { font-size: 12px; color: #999; margin-top: 14px; line-height: 1.5; }
 .back { display: inline-block; margin-top: 20px; font-size: 13px; color: #888; text-decoration: none; }
