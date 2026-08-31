@@ -4,15 +4,34 @@
 <title>오늘뭐사지? - 전체 상품</title>
 <link rel="stylesheet" href="/style.css"></head>
 <body><div class="wrap">
-<header class="site"><div class="logo">오늘뭐사지?</div><div class="sub">영상에서 본 상품, 번호로 찾아보세요</div></header>
-<input id="search" type="text" placeholder="상품명 검색">
-<div id="list"><a class="card" href="/1/"><img class="thumb" src="https://ae-pic-a1.aliexpress-media.com/kf/Sce41ee6f52364a1b807c1ad4c63e7a14P.jpg_480x480q75.jpg_.avif" alt="" onerror="this.remove()"><span class="num">1번</span><div class="name">딩동펫 반려동물 프리미엄 일체형 반자동 급수식기</div></a>
-<a class="card" href="/2/"><img class="thumb" src="https://ae-pic-a1.aliexpress-media.com/kf/S7ed8c183f3cf4ff6b377fb69d8910265N.jpg_800x800q75.jpg_.avif" alt="" onerror="this.remove()"><span class="num">2번</span><div class="name">고양이 화장실</div></a></div>
+<header class="site"><div class="badge">🛍️</div><div class="logo">오늘뭐사지?</div><div class="sub">영상에서 본 상품, 검색하거나 카테고리로 찾아보세요</div></header>
+<div class="search-wrap"><input id="search" type="text" placeholder="🔍 상품명 검색"></div>
+<div class="chips"><button class="chip active" data-cat="all">전체</button><button class="chip" data-cat="반려동물">반려동물</button></div>
+<div id="list"><a class="card" href="/2/" data-cat="반려동물"><img class="thumb" src="https://ae-pic-a1.aliexpress-media.com/kf/S7ed8c183f3cf4ff6b377fb69d8910265N.jpg_800x800q75.jpg_.avif" alt=""><div class="info"><span class="num">2번</span><span class="cat">반려동물</span><div class="name">고양이 화장실</div></div></a>
+<a class="card" href="/1/" data-cat="반려동물"><img class="thumb" src="https://ae-pic-a1.aliexpress-media.com/kf/Sce41ee6f52364a1b807c1ad4c63e7a14P.jpg_480x480q75.jpg_.avif" alt=""><div class="info"><span class="num">1번</span><span class="cat">반려동물</span><div class="name">딩동펫 반려동물 프리미엄 일체형 반자동 급수식기</div></div></a></div>
+<div id="empty" class="empty" style="display:none">조건에 맞는 상품이 없어요</div>
 <script>
-document.getElementById('search').addEventListener('input', e => {
-  const q = e.target.value.trim().toLowerCase();
-  document.querySelectorAll('#list .card').forEach(c => {
-    c.style.display = c.querySelector('.name').textContent.toLowerCase().includes(q) ? '' : 'none';
+let activeCat = 'all';
+function applyFilter() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const cards = document.querySelectorAll('#list .card');
+  let shown = 0;
+  cards.forEach(c => {
+    const matchesText = c.querySelector('.name').textContent.toLowerCase().includes(q);
+    const matchesCat = activeCat === 'all' || c.dataset.cat === activeCat;
+    const visible = matchesText && matchesCat;
+    c.style.display = visible ? '' : 'none';
+    if (visible) shown++;
+  });
+  document.getElementById('empty').style.display = shown === 0 ? '' : 'none';
+}
+document.getElementById('search').addEventListener('input', applyFilter);
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeCat = chip.dataset.cat;
+    applyFilter();
   });
 });
 </script>
