@@ -27,6 +27,7 @@ input#search { width: 100%; padding: 13px 16px; border-radius: 999px; border: no
 .product-page .card { display: block; text-align: center; }
 .product-page .name { font-size: 18px; margin: 8px 0 4px; }
 .product-img { width: 100%; max-height: 280px; object-fit: cover; border-radius: 10px; margin-bottom: 4px; }
+.timer { font-size: 14px; color: #ff6f3d; font-weight: 600; text-align: center; margin: 8px 0; }
 .btn { display: block; width: 100%; padding: 14px; background: #ff6f3d; color: #fff; text-align: center; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; margin-top: 8px; }
 .disclosure { font-size: 12px; color: #999; margin-top: 14px; line-height: 1.5; }
 .back { display: inline-block; margin-top: 20px; font-size: 13px; color: #888; text-decoration: none; }
