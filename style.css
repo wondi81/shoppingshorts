@@ -24,10 +24,14 @@ input#search { width: 100%; padding: 13px 16px; border-radius: 999px; border: no
 .card .cat { display: inline-block; background: #fff1ea; color: #ff6f3d; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 6px; margin-left: 4px; }
 .card .name { font-size: 15px; font-weight: 600; margin-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .empty { text-align: center; color: #aaa; font-size: 14px; padding: 40px 0; }
-.product-page .card { display: block; text-align: center; }
-.product-page .name { font-size: 18px; margin: 8px 0 4px; }
-.product-img { width: 100%; max-height: 280px; object-fit: cover; border-radius: 10px; margin-bottom: 4px; }
-.timer { font-size: 14px; color: #ff6f3d; font-weight: 600; text-align: center; margin: 8px 0; }
-.btn { display: block; width: 100%; padding: 14px; background: #ff6f3d; color: #fff; text-align: center; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; margin-top: 8px; }
-.disclosure { font-size: 12px; color: #999; margin-top: 14px; line-height: 1.5; }
-.back { display: inline-block; margin-top: 20px; font-size: 13px; color: #888; text-decoration: none; }
+.product-page .card { display: block; text-align: center; padding: 20px 16px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.product-page .name { font-size: 19px; font-weight: 700; margin: 12px 0 8px; line-height: 1.4; color: #111; }
+.product-img { width: 100%; max-height: 320px; object-fit: contain; border-radius: 12px; margin-bottom: 8px; background: #fff; }
+.timer { font-size: 13px; color: #e03131; font-weight: 700; text-align: center; margin: 6px 0 12px; }
+.redirect-bar { background: #ffe3e3; border-radius: 999px; height: 6px; overflow: hidden; margin: 10px 0 16px; }
+.redirect-progress { background: #ff4d00; height: 100%; width: 0%; transition: width 1.5s linear; }
+.btn-cta { display: block; width: 100%; padding: 18px 12px; background: linear-gradient(135deg, #ff4d00, #ff7a00); color: #fff; text-align: center; border-radius: 14px; font-weight: 800; font-size: 19px; text-decoration: none; box-shadow: 0 6px 20px rgba(255, 77, 0, 0.35); animation: pulse 1.8s infinite; margin-top: 10px; border: none; cursor: pointer; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); box-shadow: 0 8px 24px rgba(255, 77, 0, 0.45); } 100% { transform: scale(1); } }
+.redirect-notice { font-size: 14px; font-weight: 700; color: #ff4d00; margin-top: 10px; }
+.disclosure { font-size: 11px; color: #aaa; margin-top: 18px; line-height: 1.5; }
+.back { display: inline-block; margin-top: 24px; font-size: 13px; color: #888; text-decoration: none; }
