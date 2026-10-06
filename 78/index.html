@@ -11,7 +11,6 @@
   <span class="num">78번 상품</span><span class="cat">자동차용품</span>
   <img class="product-img" src="https://ae-pic-a1.aliexpress-media.com/kf/S3f708d7e11834f408fb89ee2b1c90e5dm.jpg_800x800q75.jpg_.avif" alt="불스원 프리미엄 공기청정 활성탄 차량용 에어컨 히터 필터, 21, 1개" onerror="this.remove()">
   <div class="name">불스원 프리미엄 공기청정 활성탄 차량용 에어컨 히터 필터, 21, 1개</div>
-  <div class="timer" id="deadline-timer">⏰ 오늘 특가 마감까지 --:--:--</div>
   <div class="redirect-bar"><div class="redirect-progress" id="progress"></div></div>
   <div class="redirect-notice" id="redirect-text">🚀 1.5초 후 쿠팡 최저가 페이지로 자동 연결됩니다...</div>
   <a class="btn-cta" id="cta-btn" href="https://link.coupang.com/a/hspKea7s4a" target="_blank" rel="noopener sponsored" onclick="handleCoupangClick(event, 'intent://link.coupang.com/a/hspKea7s4a#Intent;scheme=https;package=com.coupang.mobile;S.browser_fallback_url=https://link.coupang.com/a/hspKea7s4a;end')">
@@ -51,25 +50,5 @@ window.addEventListener('DOMContentLoaded', function() {
   setTimeout(goToCoupang, 1500);
 });
 
-// 오늘 자정까지 카운트다운 타이머
-function updateTimer() {
-  const now = new Date();
-  const midnight = new Date();
-  midnight.setHours(23, 59, 59, 999);
-  const diff = Math.max(0, midnight - now);
-
-  const hours = Math.floor(diff / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  const timerEl = document.getElementById('deadline-timer');
-  if (timerEl) {
-    const timeStr = String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
-    timerEl.textContent = '⏰ 오늘 특가 마감까지 ' + timeStr;
-  }
-}
-
-updateTimer();
-setInterval(updateTimer, 1000);
 </script>
 </div></body></html>
