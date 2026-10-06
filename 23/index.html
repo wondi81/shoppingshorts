@@ -8,44 +8,47 @@
 <body class="product-page"><div class="wrap">
 <header class="site"><div class="badge">🛍️</div><div class="logo">오늘뭐사지?</div></header>
 <div class="card">
-  <span class="num">23번</span><span class="cat">세탁용품</span>
+  <span class="num">23번 상품</span><span class="cat">세탁용품</span>
   <img class="product-img" src="https://ae-pic-a1.aliexpress-media.com/kf/Sd8d217363d744b9ba83f33bf20b3d264A.jpg_800x800q75.jpg_.avif" alt="다우니 초고농축 호텔 컬렉션 섬유유연제 미스티크 본품, 1.05L, 3개" onerror="this.remove()">
   <div class="name">다우니 초고농축 호텔 컬렉션 섬유유연제 미스티크 본품, 1.05L, 3개</div>
-  <div class="timer" id="deadline-timer">⏰ 오늘 특가 마감까지 --:--:--</div>
-  <a class="btn" href="https://link.coupang.com/a/gO2GWyFmUK" target="_blank" rel="noopener sponsored" onclick="handleCoupangClick(event, 'intent://link.coupang.com/a/gO2GWyFmUK#Intent;scheme=https;package=com.coupang.mobile;S.browser_fallback_url=https://link.coupang.com/a/gO2GWyFmUK;end')">쿠팡에서 확인하기</a>
+  <div class="redirect-bar"><div class="redirect-progress" id="progress"></div></div>
+  <div class="redirect-notice" id="redirect-text">🚀 1.5초 후 쿠팡 최저가 페이지로 자동 연결됩니다...</div>
+  <a class="btn-cta" id="cta-btn" href="https://link.coupang.com/a/gO2GWyFmUK" target="_blank" rel="noopener sponsored" onclick="handleCoupangClick(event, 'intent://link.coupang.com/a/gO2GWyFmUK#Intent;scheme=https;package=com.coupang.mobile;S.browser_fallback_url=https://link.coupang.com/a/gO2GWyFmUK;end')">
+    🔥 쿠팡 로켓배송 최저가 확인하기
+  </a>
   <div class="disclosure">이 페이지의 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</div>
 </div>
-<a class="back" href="/">← 전체 상품 목록 보기</a>
+<a class="back" href="/">← 다른 추천 상품 목록 보기</a>
 <script>
-// 안드로이드 쿠팡 앱 딥링크 처리 (인스타그램/쓰레드 인앱 브라우저는 자체적으로 이를 차단할 수 있음)
-function handleCoupangClick(event, intentUrl) {
-  const isAndroid = /Android/i.test(navigator.userAgent);
+const targetLink = 'https://link.coupang.com/a/gO2GWyFmUK';
+const intentUrl = 'intent://link.coupang.com/a/gO2GWyFmUK#Intent;scheme=https;package=com.coupang.mobile;S.browser_fallback_url=https://link.coupang.com/a/gO2GWyFmUK;end';
+const isAndroid = /Android/i.test(navigator.userAgent);
+let redirected = false;
+
+function goToCoupang() {
+  if (redirected) return;
+  redirected = true;
   if (isAndroid) {
-    event.preventDefault();
     window.location.href = intentUrl;
-    return false;
+  } else {
+    window.location.href = targetLink;
   }
 }
 
-// 오늘 자정까지 카운트다운 타이머
-function updateTimer() {
-  const now = new Date();
-  const midnight = new Date();
-  midnight.setHours(23, 59, 59, 999);
-  const diff = Math.max(0, midnight - now);
-
-  const hours = Math.floor(diff / (1000 * 60 * 60));
-  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-  const timerEl = document.getElementById('deadline-timer');
-  if (timerEl) {
-    const timeStr = String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
-    timerEl.textContent = '⏰ 오늘 특가 마감까지 ' + timeStr;
-  }
+function handleCoupangClick(event, intent) {
+  event.preventDefault();
+  goToCoupang();
+  return false;
 }
 
-updateTimer();
-setInterval(updateTimer, 1000);
+// 1.5초 프로그레스바 및 자동 리다이렉트 (BIZ INDEX 4.73 적용)
+window.addEventListener('DOMContentLoaded', function() {
+  const bar = document.getElementById('progress');
+  if (bar) {
+    setTimeout(function() { bar.style.width = '100%'; }, 50);
+  }
+  setTimeout(goToCoupang, 1500);
+});
+
 </script>
 </div></body></html>
